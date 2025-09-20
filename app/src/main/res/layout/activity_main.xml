@@ -1,39 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:fillViewport="true"
+    android:padding="16dp">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Planer wyprawy do Mordoru"
-        android:layout_gravity="center"
-        android:textSize="30sp"
-        />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="Podaj imię bohatera"
-        />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planer wyprawy do Mordoru"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:paddingBottom="16dp" />
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        <EditText
+            android:id="@+id/name_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Podaj imię bohatera"
+            android:inputType="textPersonName" />
 
-        />
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/race_icon"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:padding="16dp"
+            android:contentDescription="Ikona rasy" />
+
+        <Button
+            android:id="@+id/pick_date_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybierz datę" />
+
+        <Button
+            android:id="@+id/pick_time_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wybierz godzinę"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/date_time_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Wyruszasz: "
+            android:padding="8dp"
+            android:textStyle="italic" />
+
+        <Switch
+            android:id="@+id/elf_switch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tajne szlaki elfów" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dodatkowe przedmioty:"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:paddingTop="8dp" />
+
+        <CheckBox
+            android:id="@+id/cloak_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Płaszcz elfów" />
+
+        <CheckBox
+            android:id="@+id/lembas_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lembasy" />
+
+        <CheckBox
+            android:id="@+id/torch_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pochodnia" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Priorytet marszu:"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:paddingTop="8dp" />
+
+        <RadioGroup
+            android:id="@+id/priority_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <RadioButton android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ukryty" />
+
+            <RadioButton android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Zbalansowany" />
+
+            <RadioButton android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Forsowny" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/duration_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Czas marszu: 0 min"
+            android:paddingTop="8dp" />
+
+        <SeekBar
+            android:id="@+id/march_seekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:max="300" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trening kondycyjny"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:paddingTop="8dp" />
+
+        <Chronometer
+            android:id="@+id/chronometer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/start_chrono"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Start" />
+
+            <Button
+                android:id="@+id/stop_chrono"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Stop" />
+
+            <Button
+                android:id="@+id/reset_chrono"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Resetuj stoper" />
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/start_countdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rozpocznij odliczanie do wymarszu" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:progress="0"
+            android:max="30" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ocena morali drużyny"
+            android:layout_gravity="center"
+            android:textSize="25sp"
+            android:paddingTop="8dp" />
+
+        <RatingBar
+            android:id="@+id/rating_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="1.0"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/show_summary_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pokaż podsumowanie" />
+
+        <TextView
+            android:id="@+id/summary_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:paddingTop="8dp"
+            android:textSize="16sp" />
+    </LinearLayout>
+</ScrollView>
